@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Assigned Complaints</h2>
+
+{% for complaint in complaints %}
+
+<h3>{{ complaint.title }}</h3>
+
+<p>{{ complaint.location }}</p>
+
+<p>{{ complaint.status }}</p>
+
+<a href="{% url 'resolve_complaint' complaint.id %}">
+    Mark Resolved
+</a>
+
+{% endfor %}
+{% endblock %}

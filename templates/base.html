@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Road Management System</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>Road Management System</h2>
+
+    {% if user.is_authenticated %}
+
+        Welcome {{ user.username }} <br>
+
+        <a href="/complaints/">Complaints</a>
+        <a href="/complaints/add/">Add Complaint</a>
+
+        <form method="POST"
+              action="{% url 'logout' %}"
+              style="display:inline;">
+
+            {% csrf_token %}
+            <button type="submit">
+                Logout
+            </button>
+
+        </form>
+
+    {% endif %}
+
+</div>
+
+<div class="container">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+</body>
+</html>

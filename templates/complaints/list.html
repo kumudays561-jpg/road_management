@@ -1,0 +1,18 @@
+{% for complaint in complaints %}
+
+
+
+<h3>{{ complaint.title }}</h3>
+
+<p>{{ complaint.description }}</p>
+
+<p>Status: {{ complaint.status }}</p>
+
+{% if complaint.image %}
+<img src="{{ complaint.image.url }}"
+     width="300">
+{% endif %}
+
+<hr>
+
+{% endfor %}
